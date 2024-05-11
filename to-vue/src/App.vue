@@ -1,33 +1,32 @@
 <template>
-  <header>날짜</header>
+  <header>
+    <DateHeader />
+  </header>
   <main>
-    <ul>
-      <li>리스트</li>
-      <li>리스트</li>
-      <li>리스트</li>
-      <li>리스트</li>
-      <li>리스트</li>
-      <li>리스트</li>
-    </ul>
+    <TodoList />
   </main>
   <footer>추가 버튼</footer>
 </template>
 
 <script lang="ts">
-  export default {
-    name: "App",
-    components: {
-      
-    }
+import DateHeader from './components/DateHeader.vue';
+import TodoList from './components/TodoList.vue';
+
+export default {
+  name: "App",
+  components: {
+    DateHeader,
+    TodoList,
   }
+}
 </script>
 
 <style>
 @font-face {
-    font-family: 'KCC-Ganpan';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'KCC-Ganpan';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 #app {
@@ -36,6 +35,20 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 100%;
+  width: 50vw;
+  margin: auto;
+  height: 100vh;
+}
+
+header {
+  height: 10%;
+}
+
+main {
+  height: 80%;
+}
+
+footer {
+  height: 10%;
 }
 </style>
