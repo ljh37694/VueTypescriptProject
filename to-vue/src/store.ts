@@ -5,6 +5,7 @@ const store = createStore({
   state() {
     return {
       todoData: data,
+      currentDate: new Date().toDateString(),
     }
   },
 });

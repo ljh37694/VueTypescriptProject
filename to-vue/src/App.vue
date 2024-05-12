@@ -29,6 +29,16 @@ export default {
   font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eee;
+  margin: 0;
+}
+
 #app {
   font-family: 'KCC-Ganpan', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,8 +46,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 50vw;
-  margin: auto;
   height: 100vh;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 1px;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 header {
