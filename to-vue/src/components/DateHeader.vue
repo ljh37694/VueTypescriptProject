@@ -1,27 +1,32 @@
 <template>
   <div class="date-header-container">
-    <label>
-      <font-awesome-icon icon="fa-solid fa-chevron-left" />
-    </label>
-    <p>{{ currentDate }}</p>
-    <label>
-      <font-awesome-icon icon="fa-solid fa-chevron-right" />
-    </label>
+    <div class="date-left">
+      <label @click="plusDate(-1)">
+        <font-awesome-icon icon="fa-solid fa-chevron-left" />
+      </label>
+    </div>
+    <div class="date-middle">
+      <p>{{ currentDate.toDateString() }}</p>
+    </div>
+    <div class="date-right">
+      <label @click="plusDate(1)">
+        <font-awesome-icon icon="fa-solid fa-chevron-right" />
+      </label>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex';
+import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "DateHeader",
-  data() {
-    return {
-    }
-  },
   computed: {
     ...mapState(['currentDate']),
-  }
+  },
+  methods: {
+    ...mapMutations(['plusDate']),
+  },
 }
 </script>
 
@@ -31,17 +36,23 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
   color: blue;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* 인터넷익스플로러 */
+  user-select: none;
+}
 
-  & > p {
-    margin: 0 2em;
-    font-size: 20px;
-    width: 60%;
-  }
+.date-left,
+.date-right {
+  width: 20%;
+}
 
-  & > label {
-    font-size: 25px;
-    width: 20%;
-  }
+.date-middle {
+  width: 60%;
 }
 </style>
