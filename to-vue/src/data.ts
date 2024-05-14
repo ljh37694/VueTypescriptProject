@@ -1,4 +1,4 @@
-interface TodoType {
+export interface TodoType {
   content: String,
   createdDate: Date,
   done: Boolean,

@@ -5,18 +5,22 @@
   <main>
     <TodoList />
   </main>
-  <footer>추가 버튼</footer>
+  <footer>
+    <TodoPushFooter />
+  </footer>
 </template>
 
 <script lang="ts">
 import DateHeader from './components/DateHeader.vue';
 import TodoList from './components/TodoList.vue';
+import TodoPushFooter from './components/TodoPushFooter.vue';
 
 export default {
   name: "App",
   components: {
     DateHeader,
     TodoList,
+    TodoPushFooter,
   }
 }
 </script>
