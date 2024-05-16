@@ -1,7 +1,7 @@
 <template>
   <div class="todo-push-footer-container">
     <input id="todo-input">
-    <button @click="pushTodoButton">+</button>
+    <button @click="clickTodoButton" @keyup.enter="clickTodoButton">+</button>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   name: "TodoPushFooter",
   methods: {
     ...mapMutations(['pushTodo']),
-    pushTodoButton(): void {
+    clickTodoButton(): void {
       let content: String | null = (document?.getElementById("todo-input") as HTMLInputElement)?.value;
 
       if (content instanceof String || content !== "") {
