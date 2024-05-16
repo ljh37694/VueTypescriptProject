@@ -1,19 +1,30 @@
 <template>
   <div class="todo-push-footer-container">
     <input id="todo-input">
-    <button @click="pushTodoButton()">+</button>
+    <button @click="pushTodoButton">+</button>
   </div>
 </template>
 
 <script lang="ts">
 import { mapMutations } from 'vuex';
+import { TodoType } from '@/data';
 
 export default {
   name: "TodoPushFooter",
   methods: {
     ...mapMutations(['pushTodo']),
     pushTodoButton(): void {
-      
+      let content: String | null = (document?.getElementById("todo-input") as HTMLInputElement)?.value;
+
+      if (content instanceof String || content !== "") {
+        let todo: TodoType = {
+          content: content,
+          createdDate: new Date(),
+          done: false,
+        };
+
+        this.pushTodo(todo);
+      }
     }
   },
 }
@@ -26,13 +37,13 @@ export default {
   justify-content: center;
   align-items: center;
 
-  & > input {
+  &>input {
     height: 1em;
     width: 20em;
     padding: 10px;
   }
 
-  & > button {
+  &>button {
     border: none;
     color: blue;
     background-color: inherit;

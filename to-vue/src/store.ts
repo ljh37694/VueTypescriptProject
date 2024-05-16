@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import data from "./data";
 import { TodoType } from "./data";
 
 export interface State {
@@ -10,7 +9,7 @@ export interface State {
 const store = createStore<State>({
   state() {
     return {
-      todoData: data,
+      todoData: [],
       currentDate: new Date(),
     }
   },
@@ -20,6 +19,8 @@ const store = createStore<State>({
     },
     pushTodo(state: State, data: TodoType): void {
       const tmpData: TodoType[] = [...state.todoData, data];
+
+      state.todoData = tmpData;
     },
   }
 });
