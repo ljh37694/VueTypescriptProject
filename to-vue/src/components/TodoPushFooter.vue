@@ -1,7 +1,7 @@
 <template>
   <div class="todo-push-footer-container">
     <input id="todo-input">
-    <button @click="clickTodoButton" @keyup.enter="clickTodoButton">+</button>
+    <button @click="clickTodoButton">+</button>
   </div>
 </template>
 
