@@ -1,6 +1,6 @@
 <template>
   <div class="todo-push-footer-container">
-    <input id="todo-input">
+    <input @keyup.enter="clickTodoButton" id="todo-input">
     <button @click="clickTodoButton">+</button>
   </div>
 </template>
@@ -15,6 +15,8 @@ export default {
     ...mapMutations(['pushTodo']),
     clickTodoButton(): void {
       let content: String | null = (document?.getElementById("todo-input") as HTMLInputElement)?.value;
+
+      (document.getElementById("todo-input") as HTMLInputElement).value = "";
 
       if (content instanceof String || content !== "") {
         let todo: TodoType = {
