@@ -49,7 +49,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 50vw;
+  width: 550px;
   height: 100vh;
   margin: auto;
   background-color: #fff;

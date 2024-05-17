@@ -1,6 +1,6 @@
 <template>
   <div class="todo-push-footer-container">
-    <input @keyup.enter="clickTodoButton" id="todo-input">
+    <input @keyup.enter="clickTodoButton" id="todo-input" :maxlength="40">
     <button @click="clickTodoButton">+</button>
   </div>
 </template>
@@ -35,25 +35,26 @@ export default {
 <style>
 .todo-push-footer-container {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  &>input {
-    height: 1em;
-    width: 20em;
-    padding: 10px;
+  & input {
+    height: 1.5em;
+    width: 65%;
+    padding: 1em;
   }
 
-  &>button {
+  & button {
     border: none;
     color: blue;
     background-color: inherit;
     height: 1.5em;
     width: 1.5em;
-    padding: 10px;
-    font-size: 40px;
+    font-size: 2em;
     text-align: center;
+    vertical-align: middle;
   }
 }
 </style>

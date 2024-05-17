@@ -54,5 +54,9 @@ export default {
 
 .date-middle {
   width: 60%;
+
+  &>p {
+    display: inline;
+  }
 }
 </style>

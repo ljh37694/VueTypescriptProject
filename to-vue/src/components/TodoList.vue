@@ -2,8 +2,8 @@
   <div class="todo-list-container">
     <ul class="todo-list">
       <li class="todo" v-for="(data, idx) in todoData" :key="idx">
-        <input type="checkbox">
-        <p class="todo-content">{{ data.content }}</p>
+        <input type="checkbox" @click="completeTodo(idx)">
+        <p class="todo-content" :class="data.done ? 'done' : ''">{{ data.content }}</p>
         <p class="todo-created-time">{{ data.createdDate.toDateString() }}</p>
       </li>
     </ul>
@@ -11,12 +11,15 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: "TodoList",
   computed: {
     ...mapState(['todoData']),
+  },
+  methods: {
+    ...mapMutations(['completeTodo']),
   }
 }
 </script>
@@ -43,6 +46,11 @@ export default {
   padding: 20px;
   display: flex;
   align-items: center;
+
+  & p {
+    margin: 0;
+    word-wrap: break-word;
+  }
 }
 
 .todo>input {
@@ -58,5 +66,10 @@ export default {
   font-size: 12px;
   color: #989898;
   text-align: right;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #989898;
 }
 </style>

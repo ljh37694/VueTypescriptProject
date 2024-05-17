@@ -22,6 +22,13 @@ const store = createStore<State>({
 
       state.todoData = tmpData;
     },
+    completeTodo(state: State, index: number) {
+      const tmpData: TodoType[] = [...state.todoData];
+
+      tmpData[index].done = !tmpData[index].done;
+
+      state.todoData = tmpData;
+    },
   }
 });
 
