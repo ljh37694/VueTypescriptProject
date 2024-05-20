@@ -52,10 +52,10 @@ body {
   width: 550px;
   height: 100vh;
   margin: auto;
-  background-color: #fff;
+  background-color: #eee;
   border-radius: 15px;
   padding: 10px;
-  margin-top: 1px;
+  margin: auto;
 }
 
 div {
