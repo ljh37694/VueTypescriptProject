@@ -6,7 +6,7 @@
       </label>
     </div>
     <div class="date-middle none-highlight">
-      <p>{{ currentDate.toDateString() }}</p>
+      <p :style="dateColor">{{ currentDate.toDateString() }}</p>
     </div>
     <div class="date-right">
       <label @click="plusDate(1)">
@@ -21,12 +21,31 @@ import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "DateHeader",
+  data() {
+    return {
+      koreanDay: ['일', '월', '화', '수', '목', '금', '토'],
+      dateColor: {
+        color: "black",
+      }
+    }
+  },
   computed: {
     ...mapState(['currentDate']),
   },
   methods: {
     ...mapMutations(['plusDate']),
   },
+  updated() {
+    const day: number = this.currentDate.getDay();
+
+    if (day === 0) {
+      this.dateColor.color = 'red';
+    } else if (day === 6) {
+      this.dateColor.color = 'blue';
+    } else {
+      this.dateColor.color = 'black';
+    }
+  }
 }
 </script>
 
@@ -37,12 +56,12 @@ export default {
   align-items: center;
   height: 100%;
   width: 100%;
-  color: blue;
 }
 
 .date-left,
 .date-right {
   width: 20%;
+  font-size: 24px;
 }
 
 .date-middle {
@@ -50,6 +69,7 @@ export default {
 
   &>p {
     display: inline;
+    font-size: 24px;
   }
 }
 </style>
