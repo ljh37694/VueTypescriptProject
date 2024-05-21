@@ -14,11 +14,11 @@ export default {
   methods: {
     ...mapMutations(['pushTodo']),
     clickTodoButton(): void {
-      let content: String | null = (document?.getElementById("todo-input") as HTMLInputElement)?.value;
+      let content: string | null = (document?.getElementById("todo-input") as HTMLInputElement)?.value;
 
       (document.getElementById("todo-input") as HTMLInputElement).value = "";
 
-      if (content instanceof String || content !== "") {
+      if (typeof content === "string" || content !== "") {
         let todo: TodoType = {
           content: content,
           createdDate: new Date(),
