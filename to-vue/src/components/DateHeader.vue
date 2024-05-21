@@ -5,7 +5,7 @@
         <font-awesome-icon icon="fa-solid fa-chevron-left" />
       </label>
     </div>
-    <div class="date-middle">
+    <div class="date-middle none-highlight">
       <p>{{ currentDate.toDateString() }}</p>
     </div>
     <div class="date-right">
@@ -38,13 +38,6 @@ export default {
   height: 100%;
   width: 100%;
   color: blue;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -ms-user-select: none;
-  /* 인터넷익스플로러 */
-  user-select: none;
 }
 
 .date-left,
