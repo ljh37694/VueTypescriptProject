@@ -1,26 +1,16 @@
 <template>
-  <header>
-    <DateHeader />
-  </header>
-  <main>
-    <TodoList />
-  </main>
-  <footer>
-    <TodoPushFooter />
-  </footer>
+  <div id="main-container">
+    <MainPage />
+  </div>
 </template>
 
 <script lang="ts">
-import DateHeader from './components/DateHeader.vue';
-import TodoList from './components/TodoList.vue';
-import TodoPushFooter from './components/TodoPushFooter.vue';
+import MainPage from './pages/MainPage.vue';
 
 export default {
   name: "App",
   components: {
-    DateHeader,
-    TodoList,
-    TodoPushFooter,
+    MainPage,
   }
 }
 </script>
@@ -41,25 +31,33 @@ export default {
 body {
   background-color: #eee;
   margin: 0;
+  height: 100vh;
+  padding: 50px auto;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 #app {
   font-family: 'KCC-Ganpan', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 550px;
+  padding: 20px;
   height: 100vh;
-  margin: auto;
-  background-color: #eee;
-  border-radius: 15px;
-  padding: 10px;
   margin: auto;
 }
 
-div {
-  box-sizing: border-box;
+#main-container {
+  height: 100%;
+  text-align: center;
+  color: #2c3e50;
+  width: 550px;
+  height: 100%;
+  margin: auto;
+  background-color: #eee;
+  border-radius: 15px;
+  padding: 30px;
 }
 
 header {
@@ -72,5 +70,15 @@ main {
 
 footer {
   height: 10%;
+}
+
+.none-highlight {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* 인터넷익스플로러 */
+  user-select: none;
 }
 </style>
