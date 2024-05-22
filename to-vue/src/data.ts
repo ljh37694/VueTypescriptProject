@@ -1,7 +1,7 @@
 export interface TodoType {
-  content: String,
+  content: string,
   createdDate: Date,
-  done: Boolean,
+  done: boolean,
 }
 
 const data: TodoType[] = [
