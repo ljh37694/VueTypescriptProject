@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div v-if="optionToggle === idx" class="todo-options-container">
+        <div v-if="optionToggle === idx" class="todo-options-container none-highlight">
           <p class="todo-edit-button">수정</p>
           <p class="todo-delete-button">삭제</p>
         </div>
