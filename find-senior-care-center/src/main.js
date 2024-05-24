@@ -1,5 +1,6 @@
 /* Set up using Vue 3 */
 import { createApp } from 'vue'
+import store from './store'
 import App from './App.vue'
 
 /* import the fontawesome core */
@@ -15,5 +16,6 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 library.add(faUserSecret)
 
 createApp(App)
+.use(store)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')

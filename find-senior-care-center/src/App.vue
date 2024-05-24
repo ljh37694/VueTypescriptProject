@@ -1,12 +1,17 @@
 <template>
-  <div>hi</div>
+  <div>
+    <SideNavbar @click="$store.commit('increment')" />
+  </div>
+  <font-awesome-icon :icon="['fas', 'user-secret']"></font-awesome-icon>
 </template>
 
 <script>
+import SideNavbar from './components/SideNavbar.vue';
+
 export default {
   name: 'App',
   components: {
-    
+    SideNavbar,
   }
 }
 </script>
