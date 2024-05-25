@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <SideNavbar @click="$store.commit('increment')" />
-  </div>
-  <font-awesome-icon :icon="['fas', 'user-secret']"></font-awesome-icon>
+  <SideNavbar @click="$store.commit('increment')" />
 </template>
 
 <script>
@@ -17,11 +14,26 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a:visited,
+a:link {
+  color: rgb(255, 225, 31);
+  text-decoration: none;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
 }
 </style>
