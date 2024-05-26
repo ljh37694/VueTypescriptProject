@@ -25,7 +25,7 @@ export default {
           text: '길찾기'
         },
         {
-          icon: ['fas', 'info-circle'],
+          icon: ['fas', 'circle-info'],
           text: '세부정보'
         },
         {
