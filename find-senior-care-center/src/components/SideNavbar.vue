@@ -13,13 +13,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import NavMenu from './NavMenu.vue';
 
 export default {
   name: "SideNavbar",
   computed: {
-    ...mapState(['count']),
   },
   components: {
     NavMenu,
@@ -42,13 +40,14 @@ export default {
 
 .logo {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  color: rgb(255, 225, 31);
+  color: rgb(255, 203, 31);
   margin: 0;
   height: 75px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 48px;
 }
 
 .side-nav {

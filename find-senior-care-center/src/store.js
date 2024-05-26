@@ -4,12 +4,12 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      count: 0
+      activeNavMenu: 0,
     }
   },
   mutations: {
-    increment (state) {
-      state.count++;
+    changeActiveNavMenu(state, index) {
+      state.activeNavMenu = index;
     }
   }
 });

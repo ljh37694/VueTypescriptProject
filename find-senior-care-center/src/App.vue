@@ -1,5 +1,5 @@
 <template>
-  <SideNavbar @click="$store.commit('increment')" />
+  <SideNavbar />
 </template>
 
 <script>
@@ -44,7 +44,7 @@ ul {
 
 a:visited,
 a:link {
-  color: rgb(255, 225, 31);
+  color: rgb(255, 203, 31);
   text-decoration: none;
 }
 
