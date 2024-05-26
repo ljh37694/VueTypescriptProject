@@ -1,14 +1,17 @@
 <template>
   <SideNavbar />
+  <MainPanel />
 </template>
 
 <script>
+import MainPanel from './components/MainPanel.vue';
 import SideNavbar from './components/SideNavbar.vue';
 
 export default {
   name: 'App',
   components: {
     SideNavbar,
+    MainPanel,
   }
 }
 </script>
@@ -56,5 +59,6 @@ a:link {
   text-align: center;
   color: #2c3e50;
   height: 100vh;
+  display: flex;
 }
 </style>
