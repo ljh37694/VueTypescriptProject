@@ -1,21 +1,96 @@
 <template>
-  <div class="main-panel">
-    hi
+  <div class="main-panel" :class="{ 'close-panel': !isActivePanel }">
+    <button id="close-button" @click="isActivePanel = !isActivePanel">
+      <p>
+        <font-awesome-icon v-if="isActivePanel === false" :icon="['fas', 'chevron-left']" />
+        <font-awesome-icon v-else-if="isActivePanel === true" :icon="['fas', 'chevron-right']" />
+      </p>
+    </button>
+
+    <div class="search-input-container">
+      <button>
+        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+      </button>
+      <input id="search-input" placeholder="장소를 검색하세요" />
+    </div>
+
+    <div class="panel-content">
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "MainPanel",
+  data() {
+    return {
+      isActivePanel: true,
+    }
+  }
 }
 </script>
 
 <style>
 .main-panel {
   position: relative;
-  width: 400px;
+  width: 500px;
   height: 100%;
-  z-index: -100;
-  background-color: black;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 5px 0px 15px 0px;
+}
+
+.search-input-container {
+  color: rgb(255, 203, 31);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border-radius: 5px;
+  border: 3px solid rgb(255, 203, 31);
+  padding: 15px;
+  width: 400px;
+  margin-top: 20px;
+
+  &>button {
+    font-size: 24px;
+    color: inherit;
+    border: none;
+    padding: 0 10px;
+    background-color: inherit;
+  }
+}
+
+#search-input {
+  border: 0;
+  appearance: none;
+  outline: none;
+  height: 32px;
+  flex-grow: 1;
+  background-color: inherit;
+  font-size: 18px;
+}
+
+.panel-content {
+  flex-grow: 1;
+  width: 100%;
+}
+
+#close-button {
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  right: -20px;
+  top: calc(50% - 25px);
+  width: 20px;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: inherit;
+}
+
+.close-panel {
+  transform: translateX(-500px);
 }
 </style>

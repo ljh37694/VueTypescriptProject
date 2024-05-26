@@ -51,7 +51,6 @@ a:link {
   text-decoration: none;
 }
 
-
 #app {
   font-family: 'Cafe24Ssurround';
   -webkit-font-smoothing: antialiased;
@@ -60,5 +59,6 @@ a:link {
   color: #2c3e50;
   height: 100vh;
   display: flex;
+  background-color: #fff;
 }
 </style>
