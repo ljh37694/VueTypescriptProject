@@ -36,7 +36,7 @@ export default {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  background-color: #eee;
+  background-color: inherit;
 }
 
 .logo {
