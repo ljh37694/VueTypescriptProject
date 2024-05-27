@@ -1,10 +1,12 @@
 <template>
   <SideNavbar />
   <MainPanel />
+  <Map />
 </template>
 
 <script>
 import MainPanel from './components/MainPanel.vue';
+import Map from './components/Map.vue';
 import SideNavbar from './components/SideNavbar.vue';
 
 export default {
@@ -12,6 +14,7 @@ export default {
   components: {
     SideNavbar,
     MainPanel,
+    Map,
   }
 }
 </script>
@@ -60,5 +63,6 @@ a:link {
   height: 100vh;
   display: flex;
   background-color: #fff;
+  position: relative;
 }
 </style>

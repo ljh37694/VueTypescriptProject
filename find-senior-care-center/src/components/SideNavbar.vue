@@ -37,7 +37,7 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: inherit;
-  z-index: 1;
+  z-index: 3;
 }
 
 .logo {

@@ -32,16 +32,18 @@ export default {
 
 <style>
 .main-panel {
-  position: relative;
+  position: absolute;
   width: 500px;
   height: 100%;
   background-color: inherit;
+  left: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   transition: all 0.5s;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 5px 0px 15px 0px;
+  z-index: 2;
 }
 
 .search-input-container {
