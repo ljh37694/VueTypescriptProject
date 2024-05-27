@@ -15,7 +15,9 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
+    "dotenv": "^16.4.5",
     "vue": "^3.2.13",
+    "vue3-naver-maps": "^4.2.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
