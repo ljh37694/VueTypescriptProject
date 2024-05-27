@@ -1,12 +1,12 @@
 <template>
   <SideNavbar />
   <MainPanel />
-  <Map />
+  <MainMap />
 </template>
 
 <script>
 import MainPanel from './components/MainPanel.vue';
-import Map from './components/Map.vue';
+import MainMap from './components/MainMap.vue';
 import SideNavbar from './components/SideNavbar.vue';
 
 export default {
@@ -14,7 +14,7 @@ export default {
   components: {
     SideNavbar,
     MainPanel,
-    Map,
+    MainMap,
   }
 }
 </script>
