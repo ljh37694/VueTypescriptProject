@@ -3,20 +3,28 @@ import { NaverMap, NaverCircle } from "vue3-naver-maps";
 import { mapMutations, mapState } from "vuex";
 
 const circle = ref();
+const mainMap = ref();
 
-const onLoadMap = (map) => {
-  const latLng = new window.naver.maps.LatLng(37.51347, 127.041722); // window 생략 가능
-  map.panTo(latLng); // Change Map Center
+const mapOptions = {
+  latitude: 37.51347, // 지도 중앙 위도
+  longitude: 127.041722, // 지도 중앙 경도
+  zoom: 13,
+  zoomControl: true,
+  zoomControlOptions: { position: "TOP_RIGHT", style: "SMALL" },
 };
 
 const onLoadCircle = (circleObject) => {
   circle.value = circleObject;
 };
+
+const onLoadMap = (mapObject) => {
+  mainMap.value = mapObject;
+};
 </script>
 
 <template>
   <div id="map">
-    <naver-map style="width: 100%; height: 100%" @onLoad="onLoadMap($event)" ref="MainMap" :mapOptions="mapOptions">
+    <naver-map style="width: 100%; height: 100%" @onLoad="onLoadMap($event)" ref="mainMap" :mapOptions="mapOptions">
       <naver-circle :latitude="37.51347" :longitude="127.041722" :radius="350" @onLoad="onLoadCircle($event)"
         ref="cicle" />
     </naver-map>
