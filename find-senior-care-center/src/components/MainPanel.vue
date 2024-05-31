@@ -6,35 +6,48 @@
         <font-awesome-icon v-else-if="isActivePanel === true" :icon="['fas', 'chevron-right']" />
       </p>
     </button>
-      <form class="search-form">
-        <button type="submit" @click="getSearchResult">
-          <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
-        </button>
-        <input id="search-input" placeholder="장소를 검색하세요" />
-      </form>
+    <form class="search-form">
+      <button type="submit" @click="getSearchResult">
+        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+      </button>
+      <input id="search-input" placeholder="장소를 검색하세요" />
+    </form>
 
     <div class="panel-content">
+      <div v-for="(data, idx) in searchData" :key="idx" class="location-card">
+        <p>{{ data.title }}</p>
+        <p>{{ data.address }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
+
 export default {
   name: "MainPanel",
+  computed: {
+    ...mapState(['searchData']),
+  },
   data() {
     return {
       isActivePanel: true,
     }
   },
   methods: {
+    ...mapMutations(['setSearchData']),
     getSearchResult(e) {
       e.preventDefault();
 
       const keyword = document.getElementById('search-input').value;
 
-      fetch("http://localhost:3000/")
-      .then(res => res.json())
-      .then(data => console.log(data));
+      fetch("http://localhost:3000/search?query=" + keyword)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          this.setSearchData(data.items);
+        });
 
       console.log(keyword);
     },
@@ -106,5 +119,10 @@ export default {
 
 .close-panel {
   transform: translateX(-500px);
+}
+
+.location-card {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 </style>

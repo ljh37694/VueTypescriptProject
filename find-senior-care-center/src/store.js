@@ -9,6 +9,7 @@ const store = createStore({
         latitude: 0,
         longitude: 0,
       },
+      searchData: [],
     }
   },
   mutations: {
@@ -18,6 +19,9 @@ const store = createStore({
     setCurGeolocation(state, geolocation) {
       state.curGeolocation.latitude = geolocation;
     },
+    setSearchData(state, data) {
+      state.searchData = [...data];
+    }
   }
 });
 

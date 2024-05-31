@@ -17,9 +17,13 @@ app.listen(port, () => {
 });
 
 app.get('/', async (req, res) => {
+  res.send('Hello World!');
+});
+
+app.get('/search', async (req, res) => {
   await axios({
     method: "get",
-    url: "https://openapi.naver.com/v1/search/local.json?query=" + encodeURI('경덕재주간보호센터') + "&display=5&sort=comment",
+    url: "https://openapi.naver.com/v1/search/local.json?query=" + encodeURI(req.query.query) + "&display=5&sort=comment",
     headers: {
       "X-Naver-Client-Id": process.env.VUE_APP_NAVER_CLIENT_ID,
       "X-Naver-Client-Secret": process.env.VUE_APP_NAVER_CLIENT_SECRET
@@ -30,5 +34,5 @@ app.get('/', async (req, res) => {
     res.send(response.data);
     res.json(response.data)
   })
-  .catch(e => console.log(e))
+  .catch(e => console.log(e));
 });
