@@ -18,6 +18,7 @@
         <p>{{ data.title }}</p>
         <p>{{ data.address }}</p>
       </div>
+      <p v-if="searchData.length == 0">검색결과가 없습니다.</p>
     </div>
   </div>
 </template>
