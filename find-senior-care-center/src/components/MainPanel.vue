@@ -15,8 +15,8 @@
 
     <div class="panel-content">
       <div v-for="(data, idx) in searchData" :key="idx" class="location-card">
-        <p>{{ data.title }}</p>
-        <p>{{ data.address }}</p>
+        <a href="https://www.naver.com">{{ data.title }}</a>
+        <p class="location-card-category">{{ data.address }}</p>
       </div>
       <p v-if="searchData.length == 0">검색결과가 없습니다.</p>
     </div>
@@ -123,7 +123,21 @@ export default {
 }
 
 .location-card {
-  padding: 10px;
+  padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &>a, &>a:visited {
+    font-size: 20px;
+    color: #2db400;
+  }
+}
+
+.location-card-category {
+  color: #aaaaaa;
+  font-size: 12px;
 }
 </style>
