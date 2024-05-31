@@ -6,13 +6,12 @@
         <font-awesome-icon v-else-if="isActivePanel === true" :icon="['fas', 'chevron-right']" />
       </p>
     </button>
-
-    <div class="search-input-container">
-      <button>
-        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
-      </button>
-      <input id="search-input" placeholder="장소를 검색하세요" />
-    </div>
+      <form class="search-form">
+        <button type="submit" @click="getSearchResult">
+          <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+        </button>
+        <input id="search-input" placeholder="장소를 검색하세요" />
+      </form>
 
     <div class="panel-content">
     </div>
@@ -26,6 +25,19 @@ export default {
     return {
       isActivePanel: true,
     }
+  },
+  methods: {
+    getSearchResult(e) {
+      e.preventDefault();
+
+      const keyword = document.getElementById('search-input').value;
+
+      fetch("http://localhost:3000/")
+      .then(res => res.json())
+      .then(data => console.log(data));
+
+      console.log(keyword);
+    },
   }
 }
 </script>
@@ -46,7 +58,7 @@ export default {
   z-index: 2;
 }
 
-.search-input-container {
+.search-form {
   color: rgb(255, 203, 31);
   display: flex;
   align-items: center;

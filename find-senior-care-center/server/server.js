@@ -1,9 +1,15 @@
 const express = require('express');
-const app = express();
 const port = 3000;
 
 const axios = require('axios');
 require("dotenv").config();
+const cors = require('cors');
+
+const app = express();
+
+app.use(cors({
+  origin: '*',
+}));
 
 app.listen(port, () => {
   console.log('http://localhost:3000 에서 서버 실행 중');
@@ -22,6 +28,7 @@ app.get('/', async (req, res) => {
   .then(response => {
     console.log(response.data);
     res.send(response.data);
+    res.json(response.data)
   })
   .catch(e => console.log(e))
 });
