@@ -15,9 +15,11 @@
 
     <div class="panel-content">
       <div v-for="(data, idx) in searchData" :key="idx" class="location-card">
-        <a href="https://www.naver.com">{{ data.title }}</a>
-        <p class="location-card-category">{{ data.address }}</p>
+        <a :href="data.link ? data.link : 'https://www.naver.com'">{{ data.title }}</a>
+        <p class="location-card-category">{{ data.category }}</p>
+        <p>{{ data.address }}</p>
       </div>
+
       <p v-if="searchData.length == 0">검색결과가 없습니다.</p>
     </div>
   </div>
@@ -79,8 +81,8 @@ export default {
   justify-content: start;
   border-radius: 5px;
   border: 3px solid rgb(255, 203, 31);
-  padding: 15px;
-  width: 400px;
+  padding: 10px;
+  width: 440px;
   margin-top: 20px;
 
   &>button {
@@ -105,6 +107,7 @@ export default {
 .panel-content {
   flex-grow: 1;
   width: 100%;
+  margin-top: 20px;
 }
 
 #close-button {
@@ -124,13 +127,14 @@ export default {
 
 .location-card {
   padding: 20px;
+  padding-left: 35px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   text-align: start;
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
 
-  &>a, &>a:visited {
+  &>a, &>a:visited, &>a:link {
     font-size: 20px;
     color: #2db400;
   }
