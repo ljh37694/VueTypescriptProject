@@ -15,7 +15,7 @@
 
     <div class="panel-content">
       <div class="location-cards-container">
-        <LocationCard v-for="(data, idx) in searchData" :key="idx" :data="data"/>
+        <LocationCard v-for="(data, idx) in searchData" :key="idx" :data="data" />
       </div>
       <p v-if="searchData.length == 0">검색결과가 없습니다.</p>
     </div>
@@ -75,7 +75,6 @@ export default {
   background-color: inherit;
   left: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   transition: all 0.5s;
@@ -92,6 +91,7 @@ export default {
   border: 3px solid rgb(255, 203, 31);
   padding: 10px;
   width: 440px;
+  height: 80px;
   margin-top: 20px;
 
   &>button {
@@ -108,15 +108,16 @@ export default {
   appearance: none;
   outline: none;
   height: 32px;
-  flex-grow: 1;
   background-color: inherit;
   font-size: 18px;
 }
 
 .panel-content {
-  flex-grow: 1;
   width: 100%;
+  height: calc(100% - 80px);
   margin-top: 20px;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 #close-button {
@@ -132,5 +133,25 @@ export default {
 
 .close-panel {
   transform: translateX(-500px);
+}
+
+.location-cards-container {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  /* 세로축 스크롤바 폭 너비 */
+  height: 20px;
+  /* 가로축 스크롤바 폭 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 203, 31);
+  /* 스크롤바 막대 색상 */
+  border: 2px solid rgb(255, 203, 31);
+  /* 스크롤바 막대 테두리 설정  */
+  border-radius: 12px 12px 12px 12px;
 }
 </style>
