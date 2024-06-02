@@ -13,7 +13,6 @@ app.use(cors({
 
 app.listen(port, () => {
   console.log('http://localhost:3000 에서 서버 실행 중');
-  console.log("https://openapi.naver.com/v1/search/local.json?query=" + encodeURI('경기도 광주시 주간보호센터') + "&display=10");
 });
 
 app.get('/', async (req, res) => {
