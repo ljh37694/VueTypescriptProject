@@ -54,7 +54,15 @@ export default {
 
       console.log(keyword);
     },
-  }
+  },
+  mounted() {
+    fetch("http://localhost:3000/search?query=" + "서울")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setSearchData(data.items);
+      });
+  },
 }
 </script>
 
@@ -134,7 +142,9 @@ export default {
   justify-content: center;
   flex-direction: column;
 
-  &>a, &>a:visited, &>a:link {
+  &>a,
+  &>a:visited,
+  &>a:link {
     font-size: 20px;
     color: #2db400;
   }
