@@ -14,12 +14,9 @@
     </form>
 
     <div class="panel-content">
-      <div v-for="(data, idx) in searchData" :key="idx" class="location-card">
-        <a :href="data.link ? data.link : 'https://www.naver.com'">{{ data.title }}</a>
-        <p class="location-card-category">{{ data.category }}</p>
-        <p>{{ data.address }}</p>
+      <div class="location-cards-container">
+        <LocationCard v-for="(data, idx) in searchData" :key="idx" :data="data"/>
       </div>
-
       <p v-if="searchData.length == 0">검색결과가 없습니다.</p>
     </div>
   </div>
@@ -27,6 +24,7 @@
 
 <script>
 import { mapMutations, mapState } from 'vuex';
+import LocationCard from './LocationCard.vue';
 
 export default {
   name: "MainPanel",
@@ -54,6 +52,9 @@ export default {
 
       console.log(keyword);
     },
+  },
+  components: {
+    LocationCard,
   },
   mounted() {
     fetch("http://localhost:3000/search?query=" + "서울")
@@ -131,27 +132,5 @@ export default {
 
 .close-panel {
   transform: translateX(-500px);
-}
-
-.location-card {
-  padding: 20px;
-  padding-left: 35px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  text-align: start;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  &>a,
-  &>a:visited,
-  &>a:link {
-    font-size: 20px;
-    color: #2db400;
-  }
-}
-
-.location-card-category {
-  color: #aaaaaa;
-  font-size: 12px;
 }
 </style>
