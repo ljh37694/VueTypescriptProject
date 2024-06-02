@@ -44,6 +44,8 @@ export default {
 * {
   box-sizing: border-box;
   font-family: 'NanumSquareRound';
+  margin: 0;
+  padding: 0;
 }
 
 body {

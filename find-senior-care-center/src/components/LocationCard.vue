@@ -1,9 +1,6 @@
 <template>
   <div class="location-card">
-    
-      <p class="location-card-title">
-        <a :href="data.link ? data.link : 'https://www.naver.com'"></a>
-      </p>
+    <a :href="data.link ? data.link : 'https://www.naver.com'" class="location-card-title"></a>
     <p class="location-card-category">{{ data.category }}</p>
     <p>{{ data.address }}</p>
   </div>
@@ -27,7 +24,7 @@ export default {
       });
     }
   },
-  mounted() { 
+  mounted() {
     this.setLoctaionCardsTitle();
   },
   updated() {
@@ -38,9 +35,7 @@ export default {
 
 <style>
 .location-card {
-  padding: 20px;
-  padding-left: 35px;
-  height: 200px;
+  padding: 35px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   text-align: start;
   display: flex;
@@ -48,14 +43,15 @@ export default {
   flex-direction: column;
 }
 
-.location-card-category {
-  color: #aaaaaa;
-  font-size: 12px;
-}
-
-.location-card-title {
+.location-card-title, .location-card-title:visited, .location-card-title:link {
   font-size: 20px;
   color: #2db400;
   display: inline;
+}
+
+.location-card-category {
+  color: #aaaaaa;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
 </style>
