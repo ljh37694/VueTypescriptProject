@@ -22,7 +22,7 @@ export default {
       menuButtonData: [
         {
           icon: ['fas', 'location-arrow'],
-          text: '길찾기'
+          text: '찾기'
         },
         {
           icon: ['fas', 'circle-info'],
