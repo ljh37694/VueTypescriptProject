@@ -1,5 +1,5 @@
 <script setup>
-import { NaverMap, NaverCircle } from "vue3-naver-maps";
+import { NaverMap, NaverCircle, NaverMarker } from "vue3-naver-maps";
 import { mapMutations, mapState } from "vuex";
 
 const circle = ref();
@@ -27,6 +27,7 @@ const onLoadMap = (mapObject) => {
     <naver-map style="width: 100%; height: 100%" @onLoad="onLoadMap($event)" ref="mainMap" :mapOptions="mapOptions">
       <naver-circle :latitude="37.51347" :longitude="127.041722" :radius="350" @onLoad="onLoadCircle($event)"
         ref="cicle" />
+      <naver-marker :latitude="37.51347" :longitude="127.041722" />
     </naver-map>
   </div>
 </template>
