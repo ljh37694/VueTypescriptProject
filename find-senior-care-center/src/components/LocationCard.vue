@@ -1,8 +1,10 @@
 <template>
   <div class="location-card">
     <div class="location-card-title-container">
-      <a :href="data.link ? data.link : 'https://www.naver.com'" class="location-card-title"></a>
-      <label class="location-card-favorite-button" :class="{ 'favorite': isFavorite }" @click="isFavorite = !isFavorite; console.log(isFavorite)">
+      <a :href="data.link ? data.link : 'https://www.naver.com'" class="location-card-title">
+      </a>
+      <label class="location-card-favorite-button" :class="{ 'favorite': isFavorite }"
+        @click="isFavorite = !isFavorite; console.log(isFavorite)">
         <font-awesome-icon :icon="['fas', 'star']" />
       </label>
     </div>
@@ -55,18 +57,22 @@ export default {
 
 .location-card-title-container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .location-card-favorite-button {
   background-color: inherit;
   color: #aaaaaa;
-  padding: 10px;
   border-radius: 10px;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
 }
 
 .favorite {
-  color: #2db400;
+  color: rgb(255, 203, 31);
 }
 
 .location-card-title,
@@ -74,7 +80,6 @@ export default {
 .location-card-title:link {
   font-size: 20px;
   color: #2db400;
-  flex-grow: 1;
 }
 
 .location-card-category {
