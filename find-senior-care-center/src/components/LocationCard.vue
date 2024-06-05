@@ -1,10 +1,10 @@
 <template>
-  <div class="location-card">
+  <div class="location-card" @click="setMapCenter(data)">
     <div class="location-card-title-container">
       <a :href="data.link ? data.link : 'https://www.naver.com'" class="location-card-title">
       </a>
       <label class="location-card-favorite-button" :class="{ 'favorite': isFavorite }"
-        @click="isFavorite = !isFavorite; console.log(isFavorite)">
+        @click="isFavorite = !isFavorite">
         <font-awesome-icon :icon="['fas', 'star']" />
       </label>
     </div>
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: "LocationCard",
   computed: {
-    ...mapState(['searchData']),
+    ...mapState(['searchData', 'map']),
   },
   data() {
     return {
@@ -30,14 +30,17 @@ export default {
     data: Object,
   },
   methods: {
+    ...mapMutations(['setMapCenter', 'setMap']),
     setLoctaionCardsTitle() {
       document.querySelectorAll('.location-card-title').forEach((item, idx) => {
         item.innerHTML = this.searchData[idx].title;
       });
-    }
+    },
   },
   mounted() {
     this.setLoctaionCardsTitle();
+
+    console.log(this.map);
   },
   updated() {
     this.setLoctaionCardsTitle();
